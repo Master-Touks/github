@@ -1,0 +1,43 @@
+// Phantombuster configuration {
+
+/* global phantom */
+'use strict';
+'phantombuster command: phantomjs';
+'phantombuster package: 5';
+
+var Buster = require("phantombuster");
+var buster = new Buster()
+
+// }
+
+var exitWithError = function(err) {
+	console.log('Error: ' + err);
+	phantom.exit(1);
+};
+
+var page = require('webpage').create();
+page.viewportSize = {
+	width: 1280,
+	height: 1024
+};
+page.settings.userAgent = 'Mozilla/5.0 (X11; Linux x86_64; rv:40.0) Gecko/20100101 Firefox/40.0';
+
+page.open('https://phantombuster.com/', function(status) {
+	if (status !== 'success')
+		exitWithError('Cannot open page: ' + status);
+
+	var file = 'screenshot.jpg';
+	page.render(file);
+
+	buster.save(file, function(err, url) {
+		if (err)
+			exitWithError(err);
+		console.log('Screenshot saved: ' + url);
+
+		buster.setResultObject({ screenshotUrl: url }, function(err) {
+			if (err)
+				exitWithError(err);
+			phantom.exit();
+		});
+	});
+});

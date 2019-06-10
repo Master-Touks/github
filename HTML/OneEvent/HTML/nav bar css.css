@@ -1,0 +1,54 @@
+`/*formater le menu */`
+`nav ul {`
+ `margin:0;`
+ `padding:0;`
+ `list-style-type:none;`
+ `text-align:center;`
+ `font-family: 'Permanent Marker', cursive;`
+ `font-size:14px;`
+ `}`
+`nav li {`
+ `float:left;`
+ `margin:auto;`
+ `padding:0;`
+ `background-color:#0E87B3;`
+ `}`
+`nav li a {`
+ `display:block;`
+ `width:150px;`
+ `color:white;`
+ `text-decoration:none;`
+ `padding:5px;`
+ `}`
+
+ `nav li a:hover {`
+ `color:#FFD700;`
+ `font-size:16px;`
+ `}`
+
+  `/*faire disparaitre*/`
+
+ `nav ul li ul {`
+ `display:none;`
+ `}`
+
+    `/*faire apparaitre*/`
+
+ `nav ul li:hover ul {`
+ `display:block;`
+ `}`
+
+  `/*menu en vertical*/`
+`nav li:hover ul li {`
+ `float:none;`
+  `background-color:#f0795E;`
+ `}`
+
+  `/*ne pas décaller ce qui est en dessous*/`
+ `nav li ul {`
+`position:absolute;`
+`}`  (modifié)
+Zone de message
+
+
+Envoyer un message à #annonces-générales
